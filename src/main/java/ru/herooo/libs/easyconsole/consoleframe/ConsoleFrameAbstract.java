@@ -108,8 +108,7 @@ public abstract class ConsoleFrameAbstract {
     }
 
     public void printWarning(String format, Object ...args) {
-        format = String.format(format + "\n", args);
-        printWarning(format);
+        printWarning(String.format(format, args));
     }
 
     public void printError(String text, Throwable e) {
