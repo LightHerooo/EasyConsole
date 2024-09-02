@@ -6,20 +6,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class ConsoleScanner {
-    private Scanner scanner;
-
-    public ConsoleScanner() {
-        refreshScanner();
-    }
-
-    private void refreshScanner() {
-        if (scanner != null) {
-            scanner.close();
-        }
-
-        scanner = new Scanner(System.in, "cp866");
-    }
-
+    private final Scanner SCANNER = new Scanner(System.in, "cp866");;
 
     public int waitChoice() {
         return waitInt("Выберите значение из списка");
@@ -38,12 +25,12 @@ public class ConsoleScanner {
         }
 
         System.out.printf("%s: ", label);
-        if (scanner.hasNextInt()) {
-            value = scanner.nextInt();
-            scanner.nextLine();
+        if (SCANNER.hasNextInt()) {
+            value = SCANNER.nextInt();
+            SCANNER.nextLine();
         } else {
-            scanner.next();
-            scanner.nextLine();
+            SCANNER.next();
+            SCANNER.nextLine();
         }
 
         return value;
@@ -62,7 +49,7 @@ public class ConsoleScanner {
             System.out.printf("%s: ", label);
         }
 
-        String str = scanner.nextLine();
+        String str = SCANNER.nextLine();
         if (isNullPossible && str.equals("null")) {
             value = 0;
         } else {
@@ -88,7 +75,7 @@ public class ConsoleScanner {
         }
 
         System.out.printf("%s (%s): ", label, extraStr);
-        String str = scanner.nextLine();
+        String str = SCANNER.nextLine();
         if (str.equals("-")) {
             value = oldValue;
         } else if (isNullPossible && str.equals("null")) {
@@ -117,7 +104,7 @@ public class ConsoleScanner {
         }
 
         System.out.printf("%s: ", label);
-        value = scanner.nextLine();
+        value = SCANNER.nextLine();
 
         return value;
     }
@@ -135,7 +122,7 @@ public class ConsoleScanner {
             System.out.printf("%s: ", label);
         }
 
-        value = scanner.nextLine();
+        value = SCANNER.nextLine();
         if (isNullPossible && value.equals("null")) {
             value = null;
         }
@@ -156,7 +143,7 @@ public class ConsoleScanner {
         }
 
         System.out.printf("%s (%s): ", label, extraStr);
-        value = scanner.nextLine();
+        value = SCANNER.nextLine();
 
         if (value.equals("-")) {
             value = oldValue;
@@ -180,7 +167,7 @@ public class ConsoleScanner {
         }
 
         System.out.printf("%s (y/n): ", label);
-        String choice = scanner.nextLine();
+        String choice = SCANNER.nextLine();
         value = choice.equalsIgnoreCase("y");
 
         return value;
@@ -196,7 +183,7 @@ public class ConsoleScanner {
         String extraStr = "-, если без изменений";
 
         System.out.printf("%s (y/n) (%s): ", label, extraStr);
-        String choice = scanner.nextLine();
+        String choice = SCANNER.nextLine();
         if (choice.equals("-")) {
             value = oldValue;
         } else {
@@ -220,7 +207,7 @@ public class ConsoleScanner {
 
         System.out.printf("%s (например: 01.01.2000): ", label);
         try {
-            value = new SimpleDateFormat("dd.MM.yyyy").parse(scanner.nextLine());
+            value = new SimpleDateFormat("dd.MM.yyyy").parse(SCANNER.nextLine());
         } catch (ParseException e) {
             value = null;
         }
@@ -241,7 +228,7 @@ public class ConsoleScanner {
             System.out.printf("%s (например: 01.01.2000): ", label);
         }
 
-        String str = scanner.nextLine();
+        String str = SCANNER.nextLine();
         if (isNullPossible && str.equals("null")) {
             value = null;
         } else {
@@ -268,7 +255,7 @@ public class ConsoleScanner {
         }
 
         System.out.printf("%s (например: 01.01.2000) (%s): ", label, extraStr);
-        String str = scanner.nextLine();
+        String str = SCANNER.nextLine();
         if (str.equals("-")) {
             value = oldValue;
         } else if (isNullPossible && str.equals("null")) {
@@ -287,6 +274,6 @@ public class ConsoleScanner {
 
     public void waitEnter() {
         System.out.println("Нажмите ENTER, чтобы продолжить...");
-        scanner.nextLine();
+        SCANNER.nextLine();
     }
 }
