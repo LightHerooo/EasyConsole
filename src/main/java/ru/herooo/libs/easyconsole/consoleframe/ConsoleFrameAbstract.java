@@ -113,8 +113,7 @@ public abstract class ConsoleFrameAbstract {
     }
 
     public void printError(String text, Throwable e) {
-        text = String.format("%s (%s)\n", text, e.getMessage());
-        printWarning(text);
+        printWarning("%s (%s)", text, e.getMessage());
     }
 
 
