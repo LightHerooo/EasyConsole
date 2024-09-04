@@ -5,7 +5,7 @@
 - Java 21 ([JDK](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html))
 
 ## Установка без Maven
-1. Скачайте [ZIP](https://disk.yandex.ru/d/gXzaV9cCImFFcw)
+1. Скачайте [ZIP](https://disk.yandex.ru/d/FBeE7NwvlgZMFA)
 2. Распакуйте архив
 3. Подключите файл `EasyConsole.jar` к вашему проекту
 
