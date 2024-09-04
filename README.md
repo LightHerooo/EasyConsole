@@ -18,7 +18,7 @@
 <dependency>
     <groupId>ru.herooo.libs</groupId>
     <artifactId>easy-console</artifactId>
-    <version>1.0</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 
